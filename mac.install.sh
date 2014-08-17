@@ -41,7 +41,7 @@ brew cask install skype # with flux, non-free software...
 brew install python
 pip2 install --upgrade setuptools
 pip2 install --upgrade pip
-pip2 install flexget
+pip2 install flexget transmissionrpc
 
 # Python3 setup
 brew install sdl sdl_image sdl_mixer sdl_tff sdl_net
