@@ -183,3 +183,6 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Disable local Time Machine backups
 hash tmutil &> /dev/null && sudo tmutil disablelocal
+
+
+# Based on Mathias Bynens famous script at https://github.com/mathiasbynens/dotfiles/blob/master/.osx
