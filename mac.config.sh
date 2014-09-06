@@ -184,5 +184,14 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 # Disable local Time Machine backups
 hash tmutil &> /dev/null && sudo tmutil disablelocal
 
-
 # Based on Mathias Bynens famous script at https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+
+# Now some extras 
+
+# Disable ipv6 
+# those devices are for a macbook pro with ethernet, might be different for yours
+networksetup -setv6off "Ethernet"
+networksetup -setv6off "Wi-Fi"
+networksetup -setv6off "Firewire"
+networksetup -setv6off "Bluetooth DUN"
+networksetup -setv6off "Bluetooth PAN"
