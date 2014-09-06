@@ -16,7 +16,7 @@ brew install            \
   ruby python3          \
   cvs svn mercurial git \
   irssi newsbeuter      \
-  aria2 mc              \
+  aria2 ranger          \
   pandoc imagemagick    \
   mpd mpc pms \ # mpd + pms/ncmpcpp graphicals? ario
   htop speedtest_cli nmap dvtm youtube-dl
