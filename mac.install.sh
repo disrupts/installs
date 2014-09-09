@@ -28,7 +28,7 @@ brew cask install                           \
   firefox transmission                      \
   vlc linein                                \
   blender gimp                              \
-  xquartz vmware-fusion                     \
+  vmware-fusion                             \
   macvim                                    \
  # liferea or qt replacement when pkgsrc will build it nicelly
  # trojita mail-client when I leave OS X
@@ -50,5 +50,17 @@ pip3 install scypy numpy ipython matplotlib pillow \
   cython
 pip3 install hg+http://bitbucket.org/pygame/pygame
 
-# MISSING gpodder and the change to /etc/launchd.conf
-# MISSING RSSOwl that will be replaced
+
+# X11 stuff
+brew cask install xquartz
+brew install urxvt feh dmenu
+brew insatll mplayer --with-x
+brew tap baskerville/formulae
+brew install bspwm sxhkd
+
+# MISSING gpodder and the change to /etc/launchd.conf to set it's environment,
+# ex: (don't forget to change $USER to your username)
+# >setenv GPODDER_HOME /Users/$USER/.gpodder
+# >setenv GPODDER_DOWNLOAD_DIR /Users/$USER/gpodder
+# MISSING RSSOwl or any other RSS reader (neusbeuter is nice but no pictures)
+# MISSING Krita
