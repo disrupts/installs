@@ -18,12 +18,14 @@ brew install            \
   irssi newsbeuter      \
   aria2 ranger          \
   pandoc imagemagick    \
-  mpd mpc pms \ # mpd + pms/ncmpcpp graphicals? ario
-  htop speedtest_cli nmap dvtm youtube-dl
+  mplayer ffmpeg bchunk \ # bchunk to cut audio with .cue files
+  mpd mpc pms           \ # mpd + pms/ncmpcpp graphicals? ario
+  dvtm abduco           \
+  htop speedtest_cli nmap youtube-dl
 
 # Install cask apps
 brew cask install                           \
-  spectacle menumeters flux caffeine        \
+  menumeters flux caffeine                  \
   iterm2 basictex appcleaner the-unarchiver \
   firefox transmission                      \
   vlc linein                                \
@@ -32,6 +34,10 @@ brew cask install                           \
   macvim                                    \
  # liferea or qt replacement when pkgsrc will build it nicelly
  # trojita mail-client when I leave OS X
+
+# AQUA Window Managment
+brew cask install spectacles
+#brew cask install amethyst
 
 brew cask install smcfancontrol  # the old version might be needed for older laptop
 brew cask install skype # with flux, non-free software...
@@ -57,6 +63,7 @@ brew install urxvt feh dmenu
 brew insatll mplayer --with-x
 brew tap baskerville/formulae
 brew install bspwm sxhkd
+# missing bar & compton to setup wm
 
 # MISSING gpodder and the change to /etc/launchd.conf to set it's environment,
 # ex: (don't forget to change $USER to your username)
