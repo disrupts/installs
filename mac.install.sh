@@ -4,7 +4,7 @@
 # (THEY SET THE CASK SYMLINK DIRECTORY)
 
 # Install Brew
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Install Brew Cask
 brew install caskroom/cask/brew-cask
@@ -36,7 +36,7 @@ brew cask install                           \
  # trojita mail-client when I leave OS X
 
 # AQUA Window Managment
-brew cask install spectacles
+brew cask install spectacle
 #brew cask install amethyst
 
 brew cask install smcfancontrol  # the old version might be needed for older laptop
@@ -50,8 +50,8 @@ pip2 install --upgrade pip
 pip2 install flexget transmissionrpc
 
 # Python3 setup
-brew install sdl sdl_image sdl_mixer sdl_tff sdl_net
-pip3 install scypy numpy ipython matplotlib pillow \
+brew install sdl sdl_image sdl_mixer sdl_ttf sdl_net
+pip3 install scipy numpy ipython matplotlib pillow \
   pyopengl pyopengl-accelerate                     \
   cython
 pip3 install hg+http://bitbucket.org/pygame/pygame
