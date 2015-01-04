@@ -1,24 +1,26 @@
-# SYSTEM CONFIGS ##########################
-HOSTNAME="hostname"
+# mac.config.sh at disrupts/installs
+# Based on Mathias Bynens famous script at https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+# vim: nowrap fdm=marker
 
-# Set hostname
+# SYSTEM CONFIGS ################## {{{1
+# Set hostname #################### {{{2
+HOSTNAME="hostname"
 sudo scutil --set ComputerName $HOSTNAME
 sudo scutil --set HostName $HOSTNAME
 sudo scutil --set LocalHostName $HOSTNAME
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $HOSTNAME
 
+# Set update check ############### {{{2
 # Check updates daily instead of weekly
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
 
-# GUI CONFIGS #############################
-
+# GUI CONFIGS ##################### {{{1
+# Notificacions ################### {{{2
 # Disable Notification Center and remove the menu bar icon
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
-
-# Screen ################
-
+# Screen ########################## {{{2
 # Save screenshots to the desktop
 defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
@@ -31,9 +33,57 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 2
 # Enable HiDPI display modes (requires restart)
 sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
 
+# Dock ############################ {{{2
+# Enable highlight hover effect for the grid view of a stack (Dock)
+#defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
-# Finder ############
+# Set the icon size of Dock items to 36 pixels
+#defaults write com.apple.dock tilesize -int 36
 
+# Minimize windows into their application’s icon
+defaults write com.apple.dock minimize-to-application -bool true
+
+# Enable spring loading for all Dock items
+#defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
+
+# Show indicator lights for open applications in the Dock
+defaults write com.apple.dock show-process-indicators -bool true
+
+# Don’t animate opening applications from the Dock
+#defaults write com.apple.dock launchanim -bool false
+
+# Speed up Mission Control animations
+defaults write com.apple.dock expose-animation-duration -float 0.1
+
+# Don’t group windows by application in Mission Control
+# (i.e. use the old Exposé behavior instead)
+defaults write com.apple.dock expose-group-by-app -bool false
+
+# Disable Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+
+# Don’t show Dashboard as a Space
+defaults write com.apple.dock dashboard-in-overlay -bool true
+
+# Don’t automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
+# Remove the auto-hiding Dock delay
+defaults write com.apple.dock autohide-delay -float 0
+
+# Automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool true
+
+# Make Dock icons of hidden applications translucent
+defaults write com.apple.dock showhidden -bool true
+
+# Make Dock more transparent
+defaults write com.apple.dock hide-mirror -bool true
+
+# Disable the Launchpad gesture (pinch with thumb and three fingers)
+defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
+
+# Finder ########################## {{{2
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
 defaults write com.apple.finder QuitMenuItem -bool true
 
@@ -87,13 +137,12 @@ defaults write com.apple.finder EmptyTrashSecurely -bool true
 # Expand the following File Info panes:
 # “General”, “Open with”, and “Sharing & Permissions”
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
-	General -bool true \
-	OpenWith -bool true \
-	Privileges -bool true
+  General -bool true \
+  OpenWith -bool true \
+  Privileges -bool true
 
 
-# Trackpad & keyboard ####################
-
+# TRACKPAD & KEYBOARD ############# {{{1
 # Trackpad: enable tap to click for this user and for the login screen
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
@@ -112,83 +161,28 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-# Dock ###############################
 
-# Enable highlight hover effect for the grid view of a stack (Dock)
-#defaults write com.apple.dock mouse-over-hilite-stack -bool true
-
-# Set the icon size of Dock items to 36 pixels
-#defaults write com.apple.dock tilesize -int 36
-
-# Minimize windows into their application’s icon
-defaults write com.apple.dock minimize-to-application -bool true
-
-# Enable spring loading for all Dock items
-#defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
-
-# Show indicator lights for open applications in the Dock
-defaults write com.apple.dock show-process-indicators -bool true
-
-# Don’t animate opening applications from the Dock
-#defaults write com.apple.dock launchanim -bool false
-
-# Speed up Mission Control animations
-defaults write com.apple.dock expose-animation-duration -float 0.1
-
-# Don’t group windows by application in Mission Control
-# (i.e. use the old Exposé behavior instead)
-defaults write com.apple.dock expose-group-by-app -bool false
-
-# Disable Dashboard
-defaults write com.apple.dashboard mcx-disabled -bool true
-
-# Don’t show Dashboard as a Space
-defaults write com.apple.dock dashboard-in-overlay -bool true
-
-# Don’t automatically rearrange Spaces based on most recent use
-defaults write com.apple.dock mru-spaces -bool false
-
-# Remove the auto-hiding Dock delay
-defaults write com.apple.dock autohide-delay -float 0
-
-# Automatically hide and show the Dock
-defaults write com.apple.dock autohide -bool true
-
-# Make Dock icons of hidden applications translucent
-defaults write com.apple.dock showhidden -bool true
-
-# Make Dock more transparent
-defaults write com.apple.dock hide-mirror -bool true
-
-# Disable the Launchpad gesture (pinch with thumb and three fingers)
-defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
-
-# Spotlight #########################
-
+# SPOTLIGHT ####################### {{{1
 # Disable Spotlight indexing for any volume that gets mounted and has not yet
 # been indexed before.
 # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
 sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
 
 
-# Terminal #########################
-
+# TERMINAL ######################## {{{1
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
 
-# Time Machine ####################
-
+# TIME MACHINE #################### {{{1
 # Prevent Time Machine from prompting to use new hard drives as backup volume
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Disable local Time Machine backups
 hash tmutil &> /dev/null && sudo tmutil disablelocal
 
-# Based on Mathias Bynens famous script at https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 
-# Now some extras 
-
-# Disable ipv6 
+# NOW SOME EXTRAS ################# {{{1
+# Disable ipv6 #################### {{{2
 # those devices are for a macbook pro with ethernet, might be different for yours
 networksetup -setv6off "Ethernet"
 networksetup -setv6off "Wi-Fi"
