@@ -10,18 +10,19 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew install caskroom/cask/brew-cask
 
 # Install brew apps
-brew install            \
-  zsh                   \
-  vim nvi               \
-  ruby python3          \
-  cvs svn mercurial git \
-  irssi newsbeuter      \
-  aria2 ranger          \
-  pandoc imagemagick    \
-  mplayer ffmpeg bchunk \ # bchunk to cut audio with .cue files
-  mpd mpc pms           \ # mpd + pms/ncmpcpp graphicals? ario
-  dvtm abduco           \
-  htop speedtest_cli nmap youtube-dl
+brew install                \
+  zsh                       \
+  vim nvi                   \
+  ruby python3              \
+  cvs svn mercurial git     \
+  irssi newsbeuter          \
+  aria2 ranger              \
+  pandoc imagemagick        \
+  mplayer ffmpeg bchunk     \ # bchunk to cut audio with .cue files
+  mpd mpc pms               \ # mpd + pms/ncmpcpp graphicals? ario
+  dvtm abduco               \
+  speedtest_cli iperf3 nmap \
+  htop youtube-dl cmatrix
 
 # Install cask apps
 brew cask install                           \
@@ -32,6 +33,7 @@ brew cask install                           \
   blender gimp                              \
   vmware-fusion                             \
   macvim                                    \
+  #musicbrainz-picard openemu
  # liferea or qt replacement when pkgsrc will build it nicelly
  # trojita mail-client when I leave OS X
 
@@ -60,13 +62,13 @@ pip3 install hg+http://bitbucket.org/pygame/pygame
 # X11 stuff
 brew cask install xquartz
 brew install urxvt feh dmenu
-brew insatll mplayer --with-x
+brew install mplayer --with-x
 brew tap baskerville/formulae
 brew install bspwm sxhkd
 # missing bar & compton to setup wm
 
 # MISSING gpodder and the change to /etc/launchd.conf to set it's environment,
-# ex: (don't forget to change $USER to your username)
+# eg: (don't forget to change $USER to your username)
 # >setenv GPODDER_HOME /Users/$USER/.gpodder
 # >setenv GPODDER_DOWNLOAD_DIR /Users/$USER/gpodder
 # MISSING RSSOwl or any other RSS reader (neusbeuter is nice but no pictures)
