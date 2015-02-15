@@ -17,12 +17,13 @@ brew install                \
   cvs svn mercurial git     \
   irssi newsbeuter          \
   aria2 ranger              \
+  brew install libcaca --with-imlib2 \ # for ranger image preview!
   pandoc imagemagick        \
   mplayer ffmpeg bchunk     \ # bchunk to cut audio with .cue files
   mpd mpc pms               \ # mpd + pms/ncmpcpp graphicals? ario
   dvtm abduco               \
   speedtest_cli iperf3 nmap \
-  htop youtube-dl cmatrix
+  htop youtube-dl cmatrix vimpager
 
 # Install cask apps
 brew cask install                           \
@@ -55,9 +56,12 @@ pip2 install flexget transmissionrpc
 brew install sdl sdl_image sdl_mixer sdl_ttf sdl_net
 pip3 install scipy numpy ipython matplotlib pillow \
   pyopengl pyopengl-accelerate                     \
-  cython
+  cython                                           \
+  pygments
 pip3 install hg+http://bitbucket.org/pygame/pygame
 
+# Ruby Gems
+gem install lolcat pry
 
 # X11 stuff
 brew cask install xquartz
